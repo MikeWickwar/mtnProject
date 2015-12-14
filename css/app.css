@@ -4,19 +4,39 @@ body{
   box-sizing: border-box;
 }
 .box{
-  background-color: #000;
-  opacity: .5;
-  height: 40vh;
-  width: 100vh;
+  background-color: rgba(0,0,0,.7);
   border: 2px solid #fff;
   border-radius: 30px;
   margin-top: 5vh;
   margin-left: 46.7%;
   color: white;
   font-family: 'Syncopate', sans-serif;
+  z-index:1;
+  padding-bottom: 3px;
+}
+.box :hover{
+  font-style: normal;
 }
 .title{
   margin-left: 3vw;
   font-size: 2em;
   font-style: italic;
+  position:relative;
+  z-index: 3;
+}
+.sec{
+  font-size: 1em;
+}
+a{
+  text-decoration: none;
+}
+.info{
+  font-size: .5em;
+  margin: 0 auto;
+  margin: 2px;
+  border-right: 0;
+  border-left: 0;
+}
+h3{
+  margin-left: 1vw;
 }
