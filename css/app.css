@@ -49,3 +49,17 @@ h3{
 h2{
   margin-left: 1vw;
 }
+.btnCont{
+  display: block;
+}
+.mtnBtn{
+  font-size: .5em;
+  margin: 0 auto;
+  margin-top: 1.5vh;
+  margin-left: 1.5vh;
+  margin-right: 1.5vh;
+  border-right: 0;
+  border-left: 0;
+  float: left;
+  padding: .5%;
+}

@@ -29,6 +29,8 @@ dGetter.done(function(response){
   $('.togglers3').toggle(1200,"swing");
   $('.togglers4').toggle(1400,"swing");
   $('.togglers5').toggle(1600,"swing");
+  $('.togglers6').toggle(1800,"swing");
+  $('.togglers7').toggle(2000,"swing");
 
 })
 $('#motdBtn').on('click',function(){
