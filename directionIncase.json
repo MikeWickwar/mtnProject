@@ -1,0 +1,35 @@
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Encoding: gzip
+Content-Length: 274
+Content-Type: application/json
+Date: Tue, 15 Dec 2015 15:16:12 GMT
+Server: Mashape/5.0.6
+Vary: Accept-Encoding
+X-Ratelimit-Requests-Limit: 100
+X-Ratelimit-Requests-Remaining: 98
+
+{
+  "routes": [
+    {
+      "routeName": "I-70 E; W 6th Ave Lakewood",
+      "routeDurationInMinutes": 86,
+      "routeLengthKM": 129.996,
+      "routeLengthMiles": 80.775744516,
+      "toll": false
+    },
+    {
+      "routeName": "I-70 E; US-6",
+      "routeDurationInMinutes": 100,
+      "routeLengthKM": 138.057,
+      "routeLengthMiles": 85.78461614700001,
+      "toll": false
+    }
+  ],
+  "startPoint": "Breckenridge, CO 80424",
+  "endPoint": "Denver, CO",
+  "startLatitude": "39.48159896389686",
+  "startLongitude": "-106.038704364445",
+  "endLatitude": "39.482667",
+  "endLongitude": "-106.038872"
+}

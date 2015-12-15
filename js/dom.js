@@ -8,7 +8,7 @@ var getter = $.ajax({
 });
 /// api key for google AIzaSyBl0CTALhcPRBiyO4IAYGaqdoXq5UjYrK4
 var dGetter = $.ajax({
-  url: "https://maps.googleapis.com/maps/api/distancematrix/json?origins=Denver&destinations=Brekenridge&key=AIzaSyBl0CTALhcPRBiyO4IAYGaqdoXq5UjYrK4",
+    url: "https://maps.googleapis.com/maps/api/distancematrix/json?origins=Denver&destinations=Brekenridge&key=AIzaSyBl0CTALhcPRBiyO4IAYGaqdoXq5UjYrK4",
   method: "GET",
   dataType: "json"
 });
@@ -34,6 +34,7 @@ dGetter.done(function(response){
 
 })
 $('#motdBtn').on('click',function(){
+  $('.info').css('display','block');
   $('.info').css('display','block');
 
 })

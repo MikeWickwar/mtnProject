@@ -1,3 +1,7 @@
+html{
+  height: 100vh;
+  width: 100vw;
+}
 body{
   background-size: 100%;
   overflow: hidden;
@@ -31,6 +35,9 @@ body{
 a{
   text-decoration: none;
 }
+#he2{
+  margin-left: 2%;
+}
 .info{
   font-size: .5em;
   margin: 0 auto;
@@ -46,11 +53,11 @@ a{
 h3{
   margin-left: 1vw;
 }
-h2{
-  margin-left: 1vw;
-}
+/* Index two positioning starts here*/
 .btnCont{
-  display: block;
+  display: flex;
+  flex-direction: column;
+
 }
 .mtnBtn{
   font-size: .5em;
@@ -62,4 +69,28 @@ h2{
   border-left: 0;
   float: left;
   padding: .5%;
+  display: flex;
+  flex-direction: column;
+}
+.mtnBtn:hover{
+  text-shadow:1px 1px 3px white;
+}
+#ab{
+  margin-left: 87%;
+  margin-top: 7%;
+}
+#br{
+  margin-left: 70%;
+  margin-top:-2%;
+}
+#ks{
+  margin-left: 53%;
+  margin-top:-1%;
+}
+#vl{
+  margin-left: 38%;
+}
+#bc{
+  margin-top: 5%;
+  margin-left: 24%;
 }
