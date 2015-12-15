@@ -34,9 +34,11 @@ body{
 }
 a{
   text-decoration: none;
+  z-index: 1;
+  position: relative;
 }
 #he2{
-  margin-left: 2%;
+  margin-left: 4%;
 }
 .info{
   font-size: .5em;
@@ -75,22 +77,37 @@ h3{
 .mtnBtn:hover{
   text-shadow:1px 1px 3px white;
 }
-#ab{
+#bc{
   margin-left: 87%;
   margin-top: 7%;
 }
-#br{
-  margin-left: 70%;
-  margin-top:-2%;
+#vl{
+  margin-left: 73%;
+  margin-top:-1.5%;
 }
-#ks{
+#ab{
   margin-left: 53%;
   margin-top:-1%;
 }
-#vl{
+#ks{
   margin-left: 38%;
 }
-#bc{
+#br{
   margin-top: 5%;
   margin-left: 24%;
+}
+.box2{
+  float: right;
+  margin-top: -16%;
+  z-index: 2;
+  position: relative;
+}
+.mtn2{
+
+}
+#t1{
+
+}
+.h3er{
+  padding-right: 45%;
 }

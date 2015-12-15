@@ -22,19 +22,65 @@ dGetter.done(function(response){
 });
 // real dom interaction starts here
   $('.info').css('display','none')
+  // $('.mtn2').css('display','none')
   $('#motdBtn').click(function(){
     console.log('click');
-  $('.togglers1').toggle(800,"swing");
-  $('.togglers2').toggle(1000,"swing");
-  $('.togglers3').toggle(1200,"swing");
-  $('.togglers4').toggle(1400,"swing");
-  $('.togglers5').toggle(1600,"swing");
-  $('.togglers6').toggle(1800,"swing");
-  $('.togglers7').toggle(2000,"swing");
-
+  $('.t1').toggle(800,"swing");
+  $('.t2').toggle(1000,"swing");
+  $('.t3').toggle(1200,"swing");
+  $('.t4').toggle(1400,"swing");
+  $('.t5').toggle(1600,"swing");
+  $('.t6').toggle(1800,"swing");
+  $('.t7').toggle(2000,"swing");
 })
 $('#motdBtn').on('click',function(){
   $('.info').css('display','block');
-  $('.info').css('display','block');
+})
 
+///page 2 listeners
+
+$('#bc').click(function(){
+  $('.t1').toggle(800,"swing");
+  $('.t2').toggle(1000,"swing");
+  $('.t3').toggle(1200,"swing");
+  $('.t4').toggle(1400,"swing");
+  $('.t5').toggle(1600,"swing");
+  $('.t6').toggle(1800,"swing");
+  $('.t7').toggle(2000,"swing");
+})
+$('#vl').on('click',function(){
+  $('.t1').toggle(800,"swing");
+  $('.t2').toggle(1000,"swing");
+  $('.t3').toggle(1200,"swing");
+  $('.t4').toggle(1400,"swing");
+  $('.t5').toggle(1600,"swing");
+  $('.t6').toggle(1800,"swing");
+  $('.t7').toggle(2000,"swing");
+})
+$('#ab').on('click',function(){
+  $('.t1').toggle(800,"swing");
+  $('.t2').toggle(1000,"swing");
+  $('.t3').toggle(1200,"swing");
+  $('.t4').toggle(1400,"swing");
+  $('.t5').toggle(1600,"swing");
+  $('.t6').toggle(1800,"swing");
+  $('.t7').toggle(2000,"swing");
+})
+$('#ks').on('click',function(){
+  $('.t1').toggle(800,"swing");
+  $('.t2').toggle(1000,"swing");
+  $('.t3').toggle(1200,"swing");
+  $('.t4').toggle(1400,"swing");
+  $('.t5').toggle(1600,"swing");
+  $('.t6').toggle(1800,"swing");
+  $('.t7').toggle(2000,"swing");
+})
+$('#br').on('click',function(){
+  $('.t1').toggle(800,"swing");
+  $('.t2').toggle(1000,"swing");
+  $('.t3').toggle(1200,"swing");
+  $('.t4').toggle(1400,"swing");
+  $('.t5').toggle(1600,"swing");
+  $('.t6').toggle(1800,"swing");
+  $('.t7').toggle(2000,"swing");
 })
