@@ -6,8 +6,9 @@ var brekGetter = $.ajax({
   method: "GET",
   dataType: "json"
 });
+//bc call and done
 var bcGetter = $.ajax({
-  url: "http://www.myweather2.com/developer/weather.ashx?uac=E8tRYOl8xe&uref=2d6a3032-363d-450c-b1d8-a8dcfa8b8db2&output=json",
+  url: "http://www.myweather2.com/developer/weather.ashx?uac=E8tRYOl8xe&uref=6060e824-7de4-4b2a-8db3-201b54dc01c3&output=json",
   method: "GET",
   dataType: "json"
 });
@@ -36,9 +37,6 @@ var dGetter = $.ajax({
 });
 
 
-dGetter.done(function(response){
-  console.log(response);
-});
 // real dom interaction starts here
 
   $('.info').css('display','none')
@@ -60,21 +58,43 @@ $('#motdBtn').on('click',function(){
 ///page 2 listeners
 
 $('#bc').click(function(){
-  bcGetter.done(function(response){
-    console.log(response);
-    var brekConditions = response.weather.snow_report[0].conditions;
-    var brekLstSnow = response.weather.snow_report[0].last_snow_date;
-    var brekBase = response.weather.snow_report[0].lower_snow_depth;
-    var brekPowder = response.weather.snow_report[0].upper_snow_depth;
 
-    console.log(brekConditions);
-    console.log(brekLstSnow);
-    console.log(brekBase);
-    console.log(brekPowder);
+  dGetter.done(function(response){
+    console.log(response);
+    var dTime = response.rows[0].elements[0].duration.text;
+    console.log(dTime);
+    $(".togglers").hide();
+    $("#t6").html("<div class='box info t1'><h3 id='he3'>&#x2744 Average Drive Time: "+response.rows[0].elements[0].duration.text+"</h2>")
+    $("#t7").html("<div class='box info t1'><h3 id='he3'>&#x2744 Distance from Denver: "+response.rows[0].elements[0].distance.text+"</h2>")
+
+
   });
 
+  bcGetter.done(function(response){
+    console.log('click');
+    var bcConditions = response.weather.snow_report[0].conditions;
+    var bcLstSnow = response.weather.snow_report[0].last_snow_date;
+    var bcBase = response.weather.snow_report[0].lower_snow_depth;
+    var bcPowder = response.weather.snow_report[0].upper_snow_depth;
+    console.log(bcConditions);
+    console.log(bcLstSnow);
+    console.log(bcBase);
+    console.log(bcPowder);
+    console.log(response);
+    // return response
+    // return bcConditions
+    // $('.togglers').hide();
+    $('#t1').html("<div class='box info t1'><h2 id='he2'>&#x2744 Beaver Creek</h2>")
+    $('#t2').html("<div class='box info t1'><h3 id='he3'>&#x2744 Conditions: "+bcConditions+"</h3>")
+    $('#t3').html("<div class='box info t1'><h3 id='he3'>&#x2744 Last Snow Date: "+bcLstSnow+"</h3>")
+    $('#t4').html("<div class='box info t1'><h3 id='he3'>&#x2744 Snow Base: "+bcBase+"</h3>")
+    $('#t5').html("<div class='box info t1'><h3 id='he3'>&#x2744 Powder: "+bcPowder+"</h3>")
+    $('.togglers').show();
+  });
+  // $('#t1').append("<div class='box info t1'><h2 id='he2'>&#x2744 Beaver Creek</h2>")
+  // $('#t1').append("<div class='box info t1'><h2 id='he2'>&#x2744 Beaver Creek</h2>")
 
-  $('.t1').toggle(800,"swing");
+  // $('.t1').toggle(800,"swing");
   $('.t2').toggle(1000,"swing");
   $('.t3').toggle(1200,"swing");
   $('.t4').toggle(1400,"swing");
