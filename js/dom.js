@@ -81,11 +81,9 @@ $('#bc').on('click', function(){
     var sDepth = response["data"][4]["Snow Depth (in)"]
     var elevation = response["station_information"]["elevation"]
     var namey = response["station_information"]["name"]
-    console.log(response);
-    console.log(response["data"][4]["Change In Snow Depth (in)"]);
-    console.log(response["data"][4]["Snow Depth (in)"]);
-    console.log(response["station_information"]["elevation"]);
-    console.log(response["station_information"]["name"]);
+    ///snow rate
+    getSnowRate(sDepth);
+
     $('#t1').html("<div class='box info t1'><h2 class='h3er' id='he2'>&#x2744 Beaver Creek</h2>")
     $('#t2').html("<div class='box info t1'><h3 class='h3er' id='t2'>&#x2744 Snow Depth: "+sDepth+" inches</h3>")
     $('#t3').html("<div class='box info t1'><h3 class='h3er' id='t3'>&#x2744 Change in Snow Depth (24hrs): "+csDepth+" inches</h3>")
@@ -114,11 +112,7 @@ $('#vl').on('click', function(){
     var sDepth = response["data"][4]["Snow Depth (in)"]
     var elevation = response["station_information"]["elevation"]
     var namey = response["station_information"]["name"]
-    console.log(response);
-    console.log(response["data"][4]["Change In Snow Depth (in)"]);
-    console.log(response["data"][4]["Snow Depth (in)"]);
-    console.log(response["station_information"]["elevation"]);
-    console.log(response["station_information"]["name"]);
+    getSnowRate(sDepth);
     $('#t1').html("<div class='box info t1'><h2 class='h3er' id='he2'>&#x2744 Vail</h2>")
     $('#t2').html("<div class='box info t1'><h3 class='h3er' id='t2'>&#x2744 Snow Depth: "+sDepth+" inches</h3>")
     $('#t3').html("<div class='box info t1'><h3 class='h3er' id='t3'>&#x2744 Change in Snow Depth (24hrs): "+csDepth+" inches</h3>")
@@ -147,11 +141,8 @@ $('#ab').on('click', function(){
     var sDepth = response["data"][4]["Snow Depth (in)"]
     var elevation = response["station_information"]["elevation"]
     var namey = response["station_information"]["name"]
-    console.log(response);
-    console.log(response["data"][4]["Change In Snow Depth (in)"]);
-    console.log(response["data"][4]["Snow Depth (in)"]);
-    console.log(response["station_information"]["elevation"]);
-    console.log(response["station_information"]["name"]);
+    ///snow rate
+    getSnowRate(sDepth);
     $('#t1').html("<div class='box info t1'><h2 class='h3er'id='he2'>&#x2744 Arapahoe Basin</h2>")
     $('#t2').html("<div class='box info t1'><h3 class='h3er'id='t2'>&#x2744 Snow Depth: "+sDepth+" inches</h3>")
     $('#t3').html("<div class='box info t1'><h3 class='h3er'id='t3'>&#x2744 Change in Snow Depth (24hrs): "+csDepth+" inches</h3>")
@@ -180,11 +171,7 @@ $('#ks').on('click', function(){
     var sDepth = response["data"][4]["Snow Depth (in)"]
     var elevation = response["station_information"]["elevation"]
     var namey = response["station_information"]["name"]
-    console.log(response);
-    console.log(response["data"][4]["Change In Snow Depth (in)"]);
-    console.log(response["data"][4]["Snow Depth (in)"]);
-    console.log(response["station_information"]["elevation"]);
-    console.log(response["station_information"]["name"]);
+    getSnowRate(sDepth);
     $('#t1').html("<div class='box info t1'><h2 class='h3er' id='he2'>&#x2744 Keystone</h2>")
     $('#t2').html("<div class='box info t1'><h3 class='h3er' id='t2'>&#x2744 Snow Depth: "+sDepth+" inches</h3>")
     $('#t3').html("<div class='box info t1'><h3 class='h3er' id='t3'>&#x2744 Change in Snow Depth (24hrs): "+csDepth+" inches</h3>")
@@ -218,6 +205,7 @@ $('#br').on('click', function(){
     console.log(response["data"][4]["Snow Depth (in)"]);
     console.log(response["station_information"]["elevation"]);
     console.log(response["station_information"]["name"]);
+    getSnowRate(sDepth);
     $('#t1').html("<div class='box info t1'><h2 class='h3er' id='he2'>&#x2744 Brekenridge</h2>")
     $('#t2').html("<div class='box info t1'><h3 class='h3er' id='t2'>&#x2744 Snow Depth: "+sDepth+" inches</h3>")
     $('#t3').html("<div class='box info t1'><h3 class='h3er' id='t3'>&#x2744 Change in Snow Depth (24hrs): "+csDepth+" inches</h3>")
@@ -396,22 +384,73 @@ $('#motdBtn').click(function(){
 
     })
   }
-
-
 })
-$('#motdBtn').on('click',function(){
-  $('.info').css('display','block');
-})
-// $('#motdBtn').on('click',function(){
-//   $('.info').css('display','block');
-// })
-//
-//
-// $('.info').css('display','none')
-// // $('.mtn2').css('display','none')
-//   ;
-  // }
-// })
-// $('#motdBtn').on('click',function(){
-//   $('.info').css('display','block');
-// })
+
+function getSnowRate(sDepth){
+  if (sDepth>50) {
+    $("#snow").css("animation", "snow 2s linear infinite")
+  }else if(sDepth>30){
+    $("#snow").css("animation", "snow 5s linear infinite")
+  }else if (sDepth<30) {
+    $("#snow").css("animation", "snow 10s linear infinite")
+  }else if(sDepth<26) {
+    $("#snow").css("animation", "snow 15s linear infinite")
+  }else if(sDepth===null){
+    $("#snow").hide
+  }
+}
+///////////map starts
+jQuery(function($) {
+    // Asynchronously Load the map API
+    var script = document.createElement('script');
+    script.src = "http://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize";
+    document.body.appendChild(script);
+});
+
+function initialize() {
+    var map;
+    var bounds = new google.maps.LatLngBounds();
+    var mapOptions = {
+        mapTypeId: 'roadmap'
+    };
+
+    // Display a map on the page
+    map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+    map.setTilt(45);
+
+    // Multiple Markers
+    var markers = [
+        ['Brekenridge, CO', 39.481228, -106.066778],
+        ['Arapahoe Basin, CO', 39.642485, -105.871664],
+        ['Vail, CO', 39.606401, -106.354940],
+        ['Beaver Creek, CO', 39.585824, -106.507276],
+        ['Keystone, CO', 39.604538, -105.954089]
+    ];
+
+    // Display multiple markers on a map
+    var infoWindow = new google.maps.InfoWindow(), marker, i;
+
+    // Loop through our array of markers & place each one on the map
+    for( i = 0; i < markers.length; i++ ) {
+        var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+        bounds.extend(position);
+        marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: markers[i][0]
+        });
+
+        // Automatically center the map fitting all markers on the screen
+        map.fitBounds(bounds);
+    }
+
+    var trafficLayer = new google.maps.TrafficLayer();
+      trafficLayer.setMap(map);
+    
+    // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+        this.setZoom(8);
+        google.maps.event.removeListener(boundsListener);
+    });
+
+}
