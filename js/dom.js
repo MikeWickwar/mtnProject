@@ -239,7 +239,6 @@ $('#br').on('click', function(){
   });
 });
 //************** best mountain***********8
-
 $('#motdBtn').click(function(){
   snI = 0;
   bstSn = 0;
@@ -312,26 +311,28 @@ $('#motdBtn').click(function(){
         $(".togglers").show();
     })
   }
+
+  //////archie div******* start here first 5 on wrong part of toggle cmt out the toggles to block ugly it up
     if (snI === 'ab') {
       abGetter.done(function(response){
+        $(".togglers").hide();
         var sDepth = response["data"][4]["Snow Depth (in)"];
         var csDepth = response["data"][4]["Change In Snow Depth (in)"];
         var elevation = response["station_information"]["elevation"];
         var namey = response["station_information"]["name"];
         console.log(sDepth);
-        $('#t1').html("<div class='box info t1'><h2 class='h3er' id='he2'>&#x2744 Arapahoe Basin</h2>")
-        $('#t2').html("<div class='box info t1'><h3 class='h3er' id='t2'>&#x2744 Snow Depth: "+sDepth+" inches</h3>")
-        $('#t3').html("<div class='box info t1'><h3 class='h3er' id='t3'>&#x2744 Change in Snow Depth (24hrs): "+csDepth+" inches</h3>")
-        $('#t5').html("<div class='box info t1'><h3 class='h3er' id='t5'>&#x2744 SNOTEL Station Name: "+namey+"</h3>")
-        $('#t4').html("<div class='box info t1'><h3 class='h3er' id='t4'>&#x2744 SNOTEL Station Elevation: "+elevation+" feet</h3>")
-        $('.t1').toggle(800,"swing");
-        $('.t2').toggle(1000,"swing");
-        $('.t3').toggle(1200,"swing");
-        $('.t4').toggle(1400,"swing");
-        $('.t5').toggle(1600,"swing");
-        $('.t6').toggle(1800,"swing");
-        $('.t7').toggle(2000,"swing");
-        $(".info").css('display','block');
+        $('#t1').html("<div class='box info t1' id='he'><h1>&#x2744 Arapahoe Basin</h2>")
+        $('#t2').html("<div class='box info t2' id='t2'><h3>&#x2744 Snow Depth: "+sDepth+" inches</h3>")
+        $('#t3').html("<div class='box info t3' id='t3'><h3>&#x2744 Change in Snow Depth (24hrs): "+csDepth+" inches</h3>")
+        $('#t5').html("<div class='box info t4' id='t5'><h3>&#x2744 SNOTEL Station Name: "+namey+"</h3>")
+        $('#t4').html("<div class='box info t5' id='t4'><h3>&#x2744 SNOTEL Station Elevation: "+elevation+" feet</h3>")
+        $('#t1').toggle(800,"swing");
+        $('#t2').toggle(1000,"swing");
+        $('#t3').toggle(1200,"swing");
+        $('#t4').toggle(1400,"swing");
+        $('#t5').toggle(1600,"swing");
+        $('#t6').toggle(1800,"swing");
+        $('#t7').toggle(2000,"swing");
 
     })
   }
@@ -400,12 +401,15 @@ $('#motdBtn').click(function(){
         $('.t5').toggle(1600,"swing");
         $('.t6').toggle(1800,"swing");
         $('.t7').toggle(2000,"swing");
-        $(".info").css('display','block');
+        // $(".info").css('display','block');
 
     })
   }
 
 
+})
+$('#motdBtn').on('click',function(){
+  $('.info').css('display','block');
 })
 // $('#motdBtn').on('click',function(){
 //   $('.info').css('display','block');
