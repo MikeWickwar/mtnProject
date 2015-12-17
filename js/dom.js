@@ -131,12 +131,6 @@ $('#vl').on('click', function(){
     $('#t5').toggle(1600,"swing");
     $('#t6').toggle(1800,"swing");
     $('#t7').toggle(2000,"swing");
-      if(sDepth >= bstSn){
-        snI = 2;
-        bstSn = sDepth;
-        console.log(snI);
-        console.log(bstSn);
-      }
   });
 })
 $('#ab').on('click', function(){
@@ -311,8 +305,6 @@ $('#motdBtn').click(function(){
         $(".togglers").show();
     })
   }
-
-  //////archie div******* start here first 5 on wrong part of toggle cmt out the toggles to block ugly it up
     if (snI === 'ab') {
       abGetter.done(function(response){
         $(".togglers").hide();
@@ -327,13 +319,12 @@ $('#motdBtn').click(function(){
         $('#t5').html("<div class='box info t4' id='t5'><h3>&#x2744 SNOTEL Station Name: "+namey+"</h3>")
         $('#t4').html("<div class='box info t5' id='t4'><h3>&#x2744 SNOTEL Station Elevation: "+elevation+" feet</h3>")
         $('#t1').toggle(800,"swing");
-        $('#t2').toggle(1000,"swing");
-        $('#t3').toggle(1200,"swing");
-        $('#t4').toggle(1400,"swing");
-        $('#t5').toggle(1600,"swing");
-        $('#t6').toggle(1800,"swing");
-        $('#t7').toggle(2000,"swing");
-
+        $('#t2').toggle(1100,"swing");
+        $('#t3').toggle(1400,"swing");
+        $('#t4').toggle(1700,"swing");
+        $('#t5').toggle(1900,"swing");
+        $('#t6').toggle(2200,"swing");
+        $('#t7').toggle(2500,"swing");
     })
   }
     if (snI === 'bc') {
